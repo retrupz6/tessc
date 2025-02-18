@@ -159,6 +159,7 @@ local Button = Tab:CreateButton({
                     end
                 end
         end
+game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Dash No Cooldown has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     end,
  })
 
@@ -178,6 +179,7 @@ local Button = Tab:CreateButton({
         end)
         
         antidamage = val
+game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script No Utility has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     end,
  })
 local Tab = Window:CreateTab("Tab Example", 4483362458)
