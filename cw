@@ -19,7 +19,7 @@ local Window = Rayfield:CreateWindow({
 	}
 })
 
-local Tab = Window:CreateTab("Tab Example", 4483362458)
+local Tab = Window:CreateTab("Main", 4483362458)
 local Button = Tab:CreateButton({
    Name = "Auto Parry & Inf Stamina",
    Callback = function()
@@ -181,5 +181,53 @@ local Button = Tab:CreateButton({
         antidamage = val
     end,
 })
-local Tab = Window:CreateTab("Tab Example", 4483362458)
+local Tab = Window:CreateTab("Hitbox Expander", 4483362458)
+local Button = Tab:CreateButton({
+   Name = "Hitbox Normal",
+   Callback = function()
+   _G.HeadSize = 1
+    _G.Disabled = true
+    game:GetService('RunService').RenderStepped:connect(function()
+        if _G.Disabled then
+            for i,v in next, game:GetService('Players'):GetPlayers() do
+                if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+                    pcall(function()
+                        v.Character.Head.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+                        v.Character.Head.Transparency = 0.9
+                        v.Character.Head.BrickColor = BrickColor.new("Red")
+                        v.Character.Head.Material = "Neon"
+                        v.Character.Head.CanCollide = false
+                        v.Character.Head.Massless = true
+                    end)
+                end
+            end
+        end
+    end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Crazy Hitbox (Risk!)",
+   Callback = function()
+    _G.HeadSize = 17
+    _G.Disabled = true
+    game:GetService('RunService').RenderStepped:connect(function()
+        if _G.Disabled then
+            for i,v in next, game:GetService('Players'):GetPlayers() do
+                if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+                    pcall(function()
+                        v.Character.Head.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+                        v.Character.Head.Transparency = 0.9
+                        v.Character.Head.BrickColor = BrickColor.new("Red")
+                        v.Character.Head.Material = "Neon"
+                        v.Character.Head.CanCollide = false
+                        v.Character.Head.Massless = true
+                    end)
+                end
+            end
+        end
+    end)
+   end,
+})
+
 local Tab = Window:CreateTab("Tab Example", 4483362458)
