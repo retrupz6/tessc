@@ -165,6 +165,7 @@ local Button = Tab:CreateButton({
  local Button = Tab:CreateButton({
     Name = "No Utility",
     Callback = function()
+        local val = true
         local methodHook
         methodHook = hookmetamethod(game, "__namecall", function(self, ...)
         if not checkcaller() and getnamecallmethod() == "FireServer" and antidamage and tostring(self) == "GotHitRE" then
