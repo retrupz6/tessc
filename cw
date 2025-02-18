@@ -160,18 +160,11 @@ local Button = Tab:CreateButton({
                 end
         end
     end,
-
-Rayfield:Notify({
-   Title = "Notification Title",
-   Content = "Notification Content",
-   Duration = 6.5,
-   Image = 4483362458,
-})
-
  })
 
  local Button = Tab:CreateButton({
     Name = "No Utility",
+    game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script No Utility has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     Callback = function()
         local methodHook
         methodHook = hookmetamethod(game, "__namecall", function(self, ...)
