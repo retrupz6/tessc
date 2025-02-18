@@ -159,8 +159,15 @@ local Button = Tab:CreateButton({
                     end
                 end
         end
-	game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Dash No Cooldown has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     end,
+
+Rayfield:Notify({
+   Title = "Notification Title",
+   Content = "Notification Content",
+   Duration = 6.5,
+   Image = 4483362458,
+})
+
  })
 
  local Button = Tab:CreateButton({
