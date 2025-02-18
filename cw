@@ -164,8 +164,8 @@ local Button = Tab:CreateButton({
 
  local Button = Tab:CreateButton({
     Name = "No Utility",
-    game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script No Utility has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     Callback = function()
+	game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script No Utility has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
         local methodHook
         methodHook = hookmetamethod(game, "__namecall", function(self, ...)
         if not checkcaller() and getnamecallmethod() == "FireServer" and antidamage and tostring(self) == "GotHitRE" then
