@@ -164,7 +164,6 @@ local Button = Tab:CreateButton({
 
  local Button = Tab:CreateButton({
     Name = "No Utility",
-    game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script No Utility has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     Callback = function()
         local methodHook
         methodHook = hookmetamethod(game, "__namecall", function(self, ...)
@@ -180,6 +179,6 @@ local Button = Tab:CreateButton({
         
         antidamage = val
     end,
- })
+})
 local Tab = Window:CreateTab("Tab Example", 4483362458)
 local Tab = Window:CreateTab("Tab Example", 4483362458)
