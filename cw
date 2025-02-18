@@ -144,5 +144,41 @@ local Button = Tab:CreateButton({
    end,
    
 })
+
+local Button = Tab:CreateButton({
+    Name = "Dash No Cooldown",
+    Callback = function()
+        local val = true
+        for i,v2 in pairs(getgc(true)) do
+                if typeof(v2) == "table" and rawget(v2, "DASH_COOLDOWN") then
+                    if val then
+                        v2.DASH_COOLDOWN = 0
+                    else
+                        v2.DASH_COOLDOWN = 0
+        
+                    end
+                end
+        end
+    end,
+ })
+
+ local Button = Tab:CreateButton({
+    Name = "No Utility",
+    Callback = function()
+        local methodHook
+        methodHook = hookmetamethod(game, "__namecall", function(self, ...)
+        if not checkcaller() and getnamecallmethod() == "FireServer" and antidamage and tostring(self) == "GotHitRE" then
+            return
+        elseif not checkcaller() and getnamecallmethod() == "FireServer" and nofall and self.Name == fallremote.Name then
+            return
+        elseif (getnamecallmethod() == "Kick" or getnamecallmethod() == "kick") and self == game.Players.LocalPlayer then
+            return
+        end
+        return methodHook(self, ...)
+        end)
+        
+        antidamage = val
+    end,
+ })
 local Tab = Window:CreateTab("Tab Example", 4483362458)
 local Tab = Window:CreateTab("Tab Example", 4483362458)
