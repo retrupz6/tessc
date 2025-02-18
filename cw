@@ -142,7 +142,6 @@ local Button = Tab:CreateButton({
      game.Players.PlayerAdded:Connect(playerAdded)
      game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Auto Parry has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
    end,
-   
 })
 
 local Button = Tab:CreateButton({
@@ -158,6 +157,7 @@ local Button = Tab:CreateButton({
         
                     end
                 end
+            end
         end
     end,
  })
