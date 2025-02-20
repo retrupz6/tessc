@@ -181,6 +181,27 @@ local Button = Tab:CreateButton({
         antidamage = val
     end,
 })
+
+local Button = Tab:CreateButton({
+    Name = "No Fall Damage",
+    Callback = function()
+        local val = true
+        local methodHook
+        methodHook = hookmetamethod(game, "__namecall", function(self, ...)
+        if not checkcaller() and getnamecallmethod() == "FireServer" and antidamage and tostring(self) == "GotHitRE" then
+            return
+        elseif not checkcaller() and getnamecallmethod() == "FireServer" and nofall and self.Name == fallremote.Name then
+            return
+        elseif (getnamecallmethod() == "Kick" or getnamecallmethod() == "kick") and self == game.Players.LocalPlayer then
+            return
+        end
+        return methodHook(self, ...)
+        end)
+        
+        nofall = val
+    end,
+})
+
 local Tab = Window:CreateTab("Hitbox Expander", 4483362458)
 local Button = Tab:CreateButton({
    Name = "Hitbox Normal",
