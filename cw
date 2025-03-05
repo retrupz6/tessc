@@ -1,3 +1,5 @@
+-- https://raw.githubusercontent.com/frkfx/Combat-Warriors/main/Script
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
