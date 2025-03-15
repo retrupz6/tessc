@@ -204,7 +204,7 @@ local Button = Tab:CreateButton({
 })
      
 --auto parry
-local Button = Window:CreateButton({
+local Button = Tab:CreateButton({
    Name = "Auto Parry",
    Callback = function()
      local lp = game.Players.LocalPlayer
