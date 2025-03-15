@@ -271,7 +271,7 @@ local Button = Tab:CreateButton({
             end
          end
          game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Inf Stamina & Inf Jump has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
-        end,    
+    end,
 })
 
 local Button = Tab:CreateButton({
