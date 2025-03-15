@@ -148,7 +148,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-   Name = "Auto Parry & Inf Stamina",
+   Name = "Inf Stamina",
    Callback = function()
     for i,v in pairs(getgc(true)) do
         if typeof(v) == "table" and rawget(v, "getIsMaxed") then
@@ -205,7 +205,7 @@ local Button = Tab:CreateButton({
      
 --auto parry
 local Button = Window:CreateButton({
-   Name = "Auto Parry & Inf Stamina",
+   Name = "Auto Parry",
    Callback = function()
      local lp = game.Players.LocalPlayer
      
