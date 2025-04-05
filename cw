@@ -25,12 +25,26 @@ local Tab = Window:CreateTab("Main", 4483362458)
 local Button = Tab:CreateButton({
     Name = "Infinite Stamina",
     Callback = function()
-        if typeof(v) == "table" and rawget(v, "_setStamina") then
-            v._setStamina = function(a, b)
-                a._stamina = math.huge
-                a._staminaChangedSignal:Fire(99)
+        for i,v in pairs(getgc(true)) do
+            if typeof(v) == "table" and rawget(v, "getIsMaxed") then
+                v.getIsMaxed = function()
+                    return false
+                end
+                v.getFlags = function()
+                    return 1
+                end
+                v.addFlags = function(a,b)
+                    a:setFlags(0)
+                    return
+                end
             end
-        end
+            if typeof(v) == "table" and rawget(v, "_setStamina") then
+                v._setStamina = function(a, b)
+                    a._stamina = math.huge
+                    a._staminaChangedSignal:Fire(99)
+                end
+            end
+         end
          game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Inf Stamina has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
     end,
 })
