@@ -38,34 +38,42 @@ local Button = Tab:CreateButton({
                     return
                 end
             end
-        -- "There was another script here but it caused the user to crash (lag out), so it had to be removed" -KiwisASkid --
-        if typeof(v) == "table" and rawget(v, "spawnCharacter") then
-            local oldfunc = v.spawnCharacter
-            v.SpawnCharacter = function(a)
-                for _,f in pairs(getgc(true)) do
-                    if typeof(f) == "table" and rawget(f, "getIsMaxed") then
-                        f.getIsMaxed = function()
-                            return false
-                        end
-                        f.getFlags = function()
-                            return 1
-                        end
-                        f.addFlags = function(aa,b)
-                            aa:setFlags(0)
-                            return
+            -- "There was another script here but it caused the user to crash (lag out), so it had to be removed" -KiwisASkid --
+            if typeof(v) == "table" and rawget(v, "spawnCharacter") then
+                local oldfunc = v.spawnCharacter
+                v.SpawnCharacter = function(a)
+                    for _,f in pairs(getgc(true)) do
+                        if typeof(f) == "table" and rawget(f, "getIsMaxed") then
+                            f.getIsMaxed = function()
+                                return false
+                            end
+                            f.getFlags = function()
+                                return 1
+                            end
+                            f.addFlags = function(aa,b)
+                                aa:setFlags(0)
+                                return
+                            end
                         end
                     end
                 end
             end
-        end
-        if typeof(v) == "table" and rawget(v, "_setStamina") then
-            v._setStamina = function(a, b)
-                a._stamina = math.huge
-                a._staminaChangedSignal:Fire(99)
+            if typeof(v) == "table" and rawget(v, "getCanJump") then
+                v.getCanJump = function()
+                    return true
+                end
             end
-        end
-        end
-        game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Inf Stamina has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
+            if typeof(v) == "table" and rawget(v, "JUMP_DELAY_ADD") then
+                v.JUMP_DELAY_ADD = 1
+            end
+            if typeof(v) == "table" and rawget(v, "_setStamina") then
+                v._setStamina = function(a, b)
+                    a._stamina = math.huge
+                    a._staminaChangedSignal:Fire(99)
+                end
+            end
+         end
+         game.StarterGui:SetCore("SendNotification", {Title = "Virus", Text = "Script Inf Stamina & Inf Jump has loaded, "..game.Players.LocalPlayer.DisplayName..".", Duration = 4,})
 end,
 })
 
