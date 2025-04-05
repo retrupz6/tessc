@@ -23,7 +23,7 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458)
 local Button = Tab:CreateButton({
-    Name = "Inf Stamina",
+    Name = "Infinite Stamina",
     Callback = function()
         for i,v in pairs(getgc(true)) do
             if typeof(v) == "table" and rawget(v, "getIsMaxed") then
@@ -267,7 +267,7 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-    Name = "Inf Stamina",
+    Name = "Inf Stamina & Inf Jump",
     Callback = function()
         for i,v in pairs(getgc(true)) do
             if typeof(v) == "table" and rawget(v, "getIsMaxed") then
