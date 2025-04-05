@@ -23,6 +23,24 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("Main", 4483362458)
 local Button = Tab:CreateButton({
+    Name = "Button Example",
+    Callback = function()
+        if typeof(v) == "table" and rawget(v, "getIsMaxed") then
+            v.getIsMaxed = function()
+                return false
+            end
+            v.getFlags = function()
+                return 1
+            end
+            v.addFlags = function(a,b)
+                a:setFlags(0)
+                return
+            end
+        end
+    end,
+ })
+
+local Button = Tab:CreateButton({
    Name = "Auto Parry & Inf Stamina",
    Callback = function()
     for i,v in pairs(getgc(true)) do
