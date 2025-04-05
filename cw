@@ -34,7 +34,7 @@ local Button = Tab:CreateButton({
                     return 1
                 end
                 v.addFlags = function(a,b)
-                    a:setFlags(0)
+                    a:setFlags(1)
                     return
                 end
             end
@@ -51,7 +51,7 @@ local Button = Tab:CreateButton({
                                 return 1
                             end
                             f.addFlags = function(aa,b)
-                                aa:setFlags(0)
+                                aa:setFlags(1)
                                 return
                             end
                         end
@@ -64,7 +64,7 @@ local Button = Tab:CreateButton({
                 end
             end
             if typeof(v) == "table" and rawget(v, "JUMP_DELAY_ADD") then
-                v.JUMP_DELAY_ADD = 2
+                v.JUMP_DELAY_ADD = 5
             end
             if typeof(v) == "table" and rawget(v, "_setStamina") then
                 v._setStamina = function(a, b)
