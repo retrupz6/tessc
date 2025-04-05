@@ -60,11 +60,11 @@ local Button = Tab:CreateButton({
             end
             if typeof(v) == "table" and rawget(v, "getCanJump") then
                 v.getCanJump = function()
-                    return true
+                    return false
                 end
             end
             if typeof(v) == "table" and rawget(v, "JUMP_DELAY_ADD") then
-                v.JUMP_DELAY_ADD = 1
+                v.JUMP_DELAY_ADD = 2
             end
             if typeof(v) == "table" and rawget(v, "_setStamina") then
                 v._setStamina = function(a, b)
