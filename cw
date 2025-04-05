@@ -58,11 +58,6 @@ local Button = Tab:CreateButton({
                     end
                 end
             end
-            if typeof(v) == "table" and rawget(v, "getCanJump") then
-                v.getCanJump = function()
-                    return false
-                end
-            end
             if typeof(v) == "table" and rawget(v, "_setStamina") then
                 v._setStamina = function(a, b)
                     a._stamina = math.huge
