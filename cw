@@ -34,7 +34,7 @@ local Button = Tab:CreateButton({
                     return 1
                 end
                 v.addFlags = function(a,b)
-                    a:setFlags(1)
+                    a:setFlags(0)
                     return
                 end
             end
@@ -45,13 +45,13 @@ local Button = Tab:CreateButton({
                     for _,f in pairs(getgc(true)) do
                         if typeof(f) == "table" and rawget(f, "getIsMaxed") then
                             f.getIsMaxed = function()
-                                return false
+                                return true
                             end
                             f.getFlags = function()
                                 return 1
                             end
                             f.addFlags = function(aa,b)
-                                aa:setFlags(1)
+                                aa:setFlags(0)
                                 return
                             end
                         end
@@ -62,9 +62,6 @@ local Button = Tab:CreateButton({
                 v.getCanJump = function()
                     return false
                 end
-            end
-            if typeof(v) == "table" and rawget(v, "JUMP_DELAY_ADD") then
-                v.JUMP_DELAY_ADD = 5
             end
             if typeof(v) == "table" and rawget(v, "_setStamina") then
                 v._setStamina = function(a, b)
