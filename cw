@@ -28,7 +28,7 @@ local Button = Tab:CreateButton({
         for i,v in pairs(getgc(true)) do
             if typeof(v) == "table" and rawget(v, "getIsMaxed") then
                 v.getIsMaxed = function()
-                    return false
+                    return true
                 end
                 v.getFlags = function()
                     return 1
